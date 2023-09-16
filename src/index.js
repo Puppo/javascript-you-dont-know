@@ -1,11 +1,13 @@
-const weakSet = new WeakSet();
+let obj = {
+  foo: {
+    bar: 'baz'
+  }
+};
 
-const obj1 = {};
-const obj2 = {};
+const ref = new WeakRef(obj);
 
-weakSet.add(obj1);
-weakSet.add(obj2);
+console.log(ref.deref()); // 1
 
-console.log(weakSet.has(obj1)); // true
-weakSet.delete(obj1);
-console.log(weakSet.has(obj1)); // false
+obj = null;
+
+console.log(ref.deref()); // undefined

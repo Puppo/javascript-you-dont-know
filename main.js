@@ -1,14 +1,17 @@
-import './style.css'
-import {setActionButtons, setReport, setupList} from './weakSet.js'
+import {startCounter} from './weakRef.js';
+
+import './style.css';
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <h1>Hello WeakSet!</h1>
-    <div id="action-buttons"></div>
-    <ul id="list"></ul>
+    <h1>Hello WeakRef!</h1>
+    <div id="counter"></div>
   </div>
 `
 
-setupList(document.querySelector('ul'))
-setReport()
-setActionButtons(document.getElementById('action-buttons'), document.querySelector('ul'))
+startCounter(document.getElementById('counter'))
+
+setTimeout(() => {
+  document.getElementById('counter').remove()
+  console.log('Removing counter element')
+}, 7000);
