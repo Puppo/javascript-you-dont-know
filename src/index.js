@@ -1,8 +1,11 @@
-const weakmap = new WeakMap();
-const key = { name: "John Doe" };
-weakmap.set(key, "Some value");
+const weakSet = new WeakSet();
 
-const value = weakmap.get(key); // "Some value"
+const obj1 = {};
+const obj2 = {};
 
-weakmap.delete(key); // true
-weakmap.has(key); // false
+weakSet.add(obj1);
+weakSet.add(obj2);
+
+console.log(weakSet.has(obj1)); // true
+weakSet.delete(obj1);
+console.log(weakSet.has(obj1)); // false
