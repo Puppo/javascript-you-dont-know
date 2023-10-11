@@ -6,7 +6,7 @@ let obj = {
 
 const ref = new WeakRef(obj);
 
-console.log(ref.deref()); // 1
+console.log(ref.deref()); // { foo: { bar: 'baz' } }
 
 obj = null;
 

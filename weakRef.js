@@ -13,3 +13,10 @@ export function startCounter(counterEl) {
     el.textContent = `Counter: ${++counter}`
   }, 1000)
 }
+
+export function simulateRemovingElement(counterEl) {
+  setTimeout(() => {
+    counterEl.remove()
+    console.log('Removing counter element')
+  }, 7000);
+}

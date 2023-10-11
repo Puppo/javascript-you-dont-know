@@ -1,4 +1,4 @@
-import {startCounter} from './weakRef.js';
+import {simulateRemovingElement, startCounter} from './weakRef.js';
 
 import './style.css';
 
@@ -10,8 +10,4 @@ document.querySelector('#app').innerHTML = `
 `
 
 startCounter(document.getElementById('counter'))
-
-setTimeout(() => {
-  document.getElementById('counter').remove()
-  console.log('Removing counter element')
-}, 7000);
+simulateRemovingElement(document.getElementById('counter'))
