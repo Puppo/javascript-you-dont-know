@@ -1,13 +1,11 @@
-let obj = {
-  foo: {
-    bar: 'baz'
-  }
-};
+const registry = new FinalizationRegistry((heldValue) => {
+  console.log(`Clean up: ${heldValue}`);
+});
 
-const ref = new WeakRef(obj);
+function createObject() {
+  const obj = {id: 1};
+  registry.register(obj, "Object 1");
+}
 
-console.log(ref.deref()); // { foo: { bar: 'baz' } }
-
-obj = null;
-
-console.log(ref.deref()); // undefined
+createObject();
+// After some time, when the object is garbage collected, the console will log: "Clean up: Object 1"

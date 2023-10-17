@@ -1,13 +1,12 @@
-import {simulateRemovingElement, startCounter} from './weakRef.js';
+import {loadElements} from './FinalizationRegistry.js';
 
 import './style.css';
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <h1>Hello WeakRef!</h1>
-    <div id="counter"></div>
+    <h1>Hello Finalization Registry!</h1>
+    <ul id="list"></div>
   </div>
 `
 
-startCounter(document.getElementById('counter'))
-simulateRemovingElement(document.getElementById('counter'))
+loadElements(document.getElementById('list'))
